@@ -1,15 +1,21 @@
-name: webstore
+name: portfolio
 recipe: symfony
 excludes:
   - htdocs/vendor
   - htdocs/var/cache
   - htdocs/node_modules
 config:
-  database: mysql:5.7
   php: '8.2'
-  config:
+  composer_version: '2.2.12'
+  via: apache:2.4
   webroot: htdocs/public
-  composer_version: 2-latest
+#  database: mysql:5.7
+  xdebug: false
+#  config:
+#    database: SEE BELOW
+#    php: SEE BELOW
+#    server: SEE BELOW
+#    vhosts: SEE BELOW
 services:
   node:
     type: 'node:18'

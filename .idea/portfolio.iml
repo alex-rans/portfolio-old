@@ -132,6 +132,7 @@
       <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/symfony/debug-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/symfony/property-info" />
       <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/symfony/notifier" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/symfony/webpack-encore-bundle" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

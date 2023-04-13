@@ -1,39 +1,54 @@
 {% extends 'layout/template.html.twig' %}
 {% block body %}
-    <div class="container-fluid">
-        <div class="container mt-5 about">
-            <div class="row align-items-center">
-                <div class="col-8">
-                    <h1 class="handwriting">About me</h1>
-                    <p>My biggest passion is web design &amp; development. I made my first website when I was 12 using
-                        basic HTML and CSS, made a forum when I was 17 using Simple Machines Forum and started
-                        making websites for people soon after. After graduating with a degree in multimedia I decided
-                        to study applied informatics and application development.</p>
-                    <p>Looking for both practical and creative solutions to problems is one of my strengths. I know Python,
-                        Java, C#, Javascript, Typescript, and a bunch of others, but my heart will always be at PHP</p>
-                    <p>My hobbies are playing the bass guitar, painting, writing and building model kits.
-                        They are a creative outlet for me to clear my head. I love spending time with close friends and
-                        capturing memories together with polaroids. People describe me as helpful, down to earth and funny.
-                        In fact, I am so funny even HR wants to hear my jokes.</p>
-                </div>
-                <div class="col-4 align-content-end">
-                    <div class="polaroid tilt-r-10">
-                        <img src="{{ asset('build/img/me.jpg') }}" width="275px" alt="">
-                        <p>Hi this is me</p>
-                    </div>
+    <div class="intro container-fluid">
+        <div class="container">
+            <h1 class="handwriting mb-0">Who the f**k is Alex?</h1>
+            <p class="mb-0">I'm a full-stack developer with a background in multimedia and software development with a weak spot
+                for pastel-polaroid-artsy-doodle aesthetics.</p>
+        </div>
+    </div>
+    <div class="position-relative">
+        <div class="custom-shape-divider-top-1681384962">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                 preserveAspectRatio="none">
+                <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </div>
+    <div class="container mt-5 about">
+        <div class="row align-items-center">
+            <div class="col-8">
+                <h1 class="handwriting">About me</h1>
+                <p>My biggest passion is web design &amp; development. I made my first website when I was 12 using
+                    basic HTML and CSS, made a forum when I was 17 using Simple Machines Forum and started
+                    making websites for people soon after. After graduating with a degree in multimedia I decided
+                    to study applied informatics and application development.</p>
+                <p>Looking for both practical and creative solutions to problems is one of my strengths. I know Python,
+                    Java, C#, Javascript, Typescript, and a bunch of others, but my heart will always be at PHP</p>
+                <p>My hobbies are playing the bass guitar, painting, writing and building model kits.
+                    They are a creative outlet for me to clear my head. I love spending time with close friends and
+                    capturing memories together with polaroids. People describe me as helpful, down to earth and funny.
+                    In fact, I am so funny even HR wants to hear my jokes.</p>
+            </div>
+            <div class="col-4 align-content-end">
+                <div class="polaroid tilt-r-10">
+                    <img src="{{ asset('build/img/me.jpg') }}" width="275px" alt="">
+                    <p>Hi this is me</p>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
 
     <div class="mt-5 pb-5 position-relative projects">
         <div class="custom-shape-divider-top-1681312239">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                 preserveAspectRatio="none">
                 <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
             </svg>
         </div>
-        <div class="container ">
+        <div class="container">
             <h1 class="handwriting">Realizations</h1>
             <div class="row mt-5">
                 <div class="col-4">
@@ -91,9 +106,98 @@
     </div>
     <div class="position-relative">
         <div class="custom-shape-divider-top-1681319272">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                 preserveAspectRatio="none">
                 <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
             </svg>
+        </div>
+    </div>
+    <div class="pb-5 container skills">
+        <h1 class="handwriting">Skills</h1>
+        <h2 class="handwriting mt-5">Design</h2>
+        <div class="row">
+            {% for designs in designArray %}
+                <div class="col-12 col-sm-6 col-md-4 mb-4">
+                    <div class="d-flex justify-content-between">
+                        <p class="mb-1 handwriting">{{ designs.name }}</p>
+                        <p class="mb-1 handwriting">{{ designs.years }} years</p>
+                    </div>
+                    <div class="progress">
+                        <div class="bar shadow" style="width: {{ designs.percentage }}%;">
+                            <p>{{ designs.percentage }}%</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+            <h2 class="handwriting mt-5">Front-end</h2>
+            <div class="row">
+                {% for designs in frontArray %}
+                    <div class="col-12 col-sm-6 col-md-4 mb-4">
+                        <div class="d-flex justify-content-between">
+                            <p class="mb-1 handwriting">{{ designs.name }}</p>
+                            <p class="mb-1 handwriting">{{ designs.years }} years</p>
+                        </div>
+                        <div class="progress">
+                            <div class="bar shadow" style="width: {{ designs.percentage }}%;">
+                                <p>{{ designs.percentage }}%</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <h2 class="handwriting mt-5">back-end</h2>
+            <div class="row">
+                {% for designs in backArray %}
+                    <div class="col-12 col-sm-6 col-md-4 mb-4">
+                        <div class="d-flex justify-content-between">
+                            <p class="mb-1 handwriting">{{ designs.name }}</p>
+                            <p class="mb-1 handwriting">{{ designs.years }} years</p>
+                        </div>
+                        <div class="progress">
+                            <div class="bar shadow" style="width: {{ designs.percentage }}%;">
+                                <p>{{ designs.percentage }}%</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <h2 class="handwriting mt-5">Frameworks</h2>
+            <div class="row">
+                {% for designs in frameworkArray %}
+                    <div class="col-12 col-sm-6 col-md-4 mb-4">
+                        <div class="d-flex justify-content-between">
+                            <p class="mb-1 handwriting">{{ designs.name }}</p>
+                            <p class="mb-1 handwriting">{{ designs.years }} years</p>
+                        </div>
+                        <div class="progress">
+                            <div class="bar shadow" style="width: {{ designs.percentage }}%;">
+                                <p>{{ designs.percentage }}%</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <h2 class="handwriting mt-5">Tooling/Dev-Ops</h2>
+            <div class="row">
+                {% for designs in toolingArray %}
+                    <div class="col-12 col-sm-6 col-md-4 mb-4">
+                        <div class="d-flex justify-content-between">
+                            <p class="mb-1 handwriting">{{ designs.name }}</p>
+                            <p class="mb-1 handwriting">{{ designs.years }} years</p>
+                        </div>
+                        <div class="progress">
+                            <div class="bar shadow" style="width: {{ designs.percentage }}%;">
+                                <p>{{ designs.percentage }}%</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
         </div>
     </div>
 

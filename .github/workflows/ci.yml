@@ -18,6 +18,6 @@ jobs:
           echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
           ssh-keyscan -H ${{ secrets.SSH_HOST }} > ~/.ssh/known_hosts
       - name: connect and pull
-        run: ssh ec2-user@${{ secrets.SSH_HOST }} "cd ${{ secrets.WORK_DIR }} && git checkout ${{ secrets.MAIN_BRANCH }} htdocs && git pull && exit"
+        run: ssh ec2-user@${{ secrets.SSH_HOST }} "cd ${{ secrets.WORK_DIR }} && git checkout main htdocs && git pull && exit"
       - name: cleanup
         run: rm -rf ~/.ssh

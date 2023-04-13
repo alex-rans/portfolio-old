@@ -1,15 +1,30 @@
 @import "~bootstrap/scss/bootstrap";
 @import "components/polaroid";
 @import "components/shapedivider";
+@import "components/progress";
 @import url('https://fonts.googleapis.com/css2?family=Courgette&family=Open+Sans:ital,wght@0,300;0,600;0,800;1,500;1,600;1,700;1,800&display=swap');
 
 body {
   font-family: 'open sans', sans-serif;
   font-weight: 500;
+  position: relative;
 }
 
 .handwriting {
   font-family: 'Courgette', cursive;
+}
+.intro {
+  background-color: #C3B1E1;
+  color: #422F61;
+  .container{
+    //max-width: 70%;
+  }
+  h1 {
+    font-size: 5rem;
+  }
+  p {
+    font-size: 2rem;
+  }
 }
 .about {
   position: relative;
@@ -35,6 +50,11 @@ body {
   color: #000;
 
   h1 {
+    padding-top: 4rem;
+  }
+}
+.skills{
+  h1{
     padding-top: 4rem;
   }
 }

@@ -21,9 +21,15 @@ body {
   }
   h1 {
     font-size: 5rem;
+    @media (max-width: 576px) {
+      font-size: 2rem;
+    }
   }
   p {
     font-size: 2rem;
+    @media (max-width: 576px) {
+      font-size: 1.4rem;
+    }
   }
 }
 .about {

@@ -1,26 +1,3 @@
-#on:
-#  push:
-#    branches:
-#      - main
-#  workflow_dispatch:
-#
-#jobs:
-#  run_pull:
-#    name: run pull
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: install ssh keys
-#        # check this thread to understand why its needed:
-#        # https://stackoverflow.com/a/70447517
-#        run: |
-#          install -m 600 -D /dev/null ~/.ssh/id_rsa
-#          echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
-#          ssh-keyscan -H ${{ secrets.SSH_HOST }} > ~/.ssh/known_hosts
-#      - name: connect and pull
-#        run: ssh ec2-user@${{ secrets.SSH_HOST }} "cd /var/www/public_html && git checkout main htdocs && git pull && exit"
-#      - name: cleanup
-#        run: rm -rf ~/.ssh
-
 name: deploy to ec2
 on: push
 jobs:
@@ -36,8 +13,6 @@ jobs:
           ssh-keyscan -H ${{ secrets.SSH_HOST }} > ~/.ssh/known_hosts
       - name: upload
         run: rsync -avr htdocs ec2-user@${{ secrets.SSH_HOST }}:/var/www/public_html/
-#      - name: rm lock files
-#        run: ssh ec2-user@${{ secrets.SSH_HOST }} "cd /var/www/public_html/htdocs && rm composer.lock"
       - name: change perms idk
         run: ssh ec2-user@${{ secrets.SSH_HOST }} "sudo chmod +777 /var/www/public_html/htdocs/var -R"
       - name: build

@@ -36,8 +36,8 @@ jobs:
           ssh-keyscan -H ${{ secrets.SSH_HOST }} > ~/.ssh/known_hosts
       - name: upload
         run: rsync -avr htdocs ec2-user@${{ secrets.SSH_HOST }}:/var/www/public_html/
-      - name: rm lock files
-        run: ssh ec2-user@${{ secrets.SSH_HOST }} "cd /var/www/public_html/htdocs && rm composer.lock && rm package-lock.json"
+#      - name: rm lock files
+#        run: ssh ec2-user@${{ secrets.SSH_HOST }} "cd /var/www/public_html/htdocs && rm composer.lock"
       - name: change perms idk
         run: ssh ec2-user@${{ secrets.SSH_HOST }} "sudo chmod +777 /var/www/public_html/htdocs/var -R"
       - name: build

@@ -13,7 +13,6 @@ class HomeController extends AbstractController
     #[Route('/', name: 'app_home')]
     public function index(Skills $skills): Response
     {
-        $skillsarray = [];
         $designArray = [];
         $frontArray = [];
         $backArray = [];
@@ -77,7 +76,6 @@ class HomeController extends AbstractController
         $cicd->setValues('CI/CD', 6, 20).array_push($toolingArray, $cicd);
 
         $result = compact('designArray', 'frontArray', 'backArray', 'frameworkArray', 'toolingArray');
-
 
         return $this->render('index.html.twig', $result);
     }

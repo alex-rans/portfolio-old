@@ -1,0 +1,27 @@
+.socialsbanner {
+  position: fixed;
+  left: 25px;
+  bottom: 0;
+  z-index: 50;
+  background-image: url('../../img/polaroid.jpg');
+  background-repeat: repeat-y;
+  background-size: contain;
+  padding-top: 0.5rem;
+  ul {
+    list-style: none;
+    padding: 0 10px;
+  }
+  a{
+    color: #fff;
+    font-size: 1.7rem;
+
+
+    i {
+      transition-duration: .2s;
+      filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5));
+      &:hover{
+        transform: scale(1.2);
+      }
+    }
+  }
+}

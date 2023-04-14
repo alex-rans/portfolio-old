@@ -9,6 +9,8 @@
 /var/
 /vendor/
 /public/compile
+composer.lock
+package-lock.json
 ###< symfony/framework-bundle ###
 
 ###> phpunit/phpunit ###

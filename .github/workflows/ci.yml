@@ -16,4 +16,4 @@ jobs:
       - name: change perms idk
         run: ssh ec2-user@${{ secrets.SSH_HOST }} "sudo chmod +777 /var/www/public_html/htdocs/var -R"
       - name: build
-        run: ssh ec2-user@${{ secrets.SSH_HOST }} "cd /var/www/public_html/htdocs && composer install --no-dev --optimize-autoloader && npm install"
+        run: ssh ec2-user@${{ secrets.SSH_HOST }} "cd /var/www/public_html/htdocs && composer install --no-dev --optimize-autoloader && npm install && npm run build"

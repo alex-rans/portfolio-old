@@ -20,6 +20,7 @@
 #        run: ssh ec2-user@${{ secrets.SSH_HOST }} "cd /var/www/public_html && git checkout main htdocs && git pull && exit"
 #      - name: cleanup
 #        run: rm -rf ~/.ssh
+
 name: deploy to ec2
 on: push
 jobs:
@@ -28,4 +29,10 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
-      - run: ls
+      - name: install ssh keys
+        run: |
+          install -m 600 -D /dev/null ~/.ssh/id_rsa
+          echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} > ~/.ssh/known_hosts
+      - name: upload
+        run: rsync -a htdocs ec2-user@${{ secrets.SSH_HOST }}:/var/www/public_html/

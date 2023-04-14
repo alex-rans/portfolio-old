@@ -41,6 +41,9 @@ body {
     background-repeat: no-repeat;
     background-size: contain;
     z-index: -1;
+    @media (max-width: 768px) {
+      background-image: none;
+    }
   }
 
 }

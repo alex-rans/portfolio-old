@@ -36,9 +36,5 @@ jobs:
           ssh-keyscan -H ${{ secrets.SSH_HOST }} > ~/.ssh/known_hosts
       - name: upload
         run: rsync -a htdocs ec2-user@${{ secrets.SSH_HOST }}:/var/www/public_html/
-      - name: make .env
-        run: ssh ec2-user@${{ secrets.SSH_HOST }} "cd /var/www/public_html/ && touch .env"
-      - name: add data to .env
-        run: ssh ec2-user@${{ secrets.SSH_HOST }} "echo -e "APP_ENV=dev\nAPP_SECRET=2376883acdbc042451cab127d2bed2e6\nDATABASE_URL=''\nMESSENGER_TRANSPORT_DSN=doctrine://default?auto_setup=0" > .env
       - name: build
         run: ssh ec2-user@${{ secrets.SSH_HOST }} "composer install --no-dev --optimize-autoloader && npm install"

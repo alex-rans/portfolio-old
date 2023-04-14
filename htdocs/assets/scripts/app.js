@@ -14,9 +14,11 @@ $(document).ready(function(){
     $('#hamburger-icon').click(function(){
         $(this).toggleClass('active');
         $('#sidebar-menu').toggleClass('animate');
+        $('#sidebar-menu li span').toggleClass('d-none');
         // $('#sidebar-menu li span').toggleClass('toggle');
         if(!open){
             open = true
+
             $('#sidebar-menu li span').animate({'opacity':1, 'margin-left':'0px'});
         }
         else {

@@ -73,7 +73,7 @@ class HomeController extends AbstractController
         $git->setValues('Git', 6, 60).array_push($toolingArray, $git);
         $lando->setValues('Lando', 1, 30).array_push($toolingArray, $lando);
         $npm->setValues('NPM', 6, 50).array_push($toolingArray, $npm);
-        $cicd->setValues('CI/CD', 6, 20).array_push($toolingArray, $cicd);
+        $cicd->setValues('CI/CD', 2, 20).array_push($toolingArray, $cicd);
 
         $result = compact('designArray', 'frontArray', 'backArray', 'frameworkArray', 'toolingArray');
 

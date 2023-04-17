@@ -13,4 +13,10 @@ class ProjectController extends AbstractController
     {
         return $this->render('projects/index.html.twig');
     }
+
+    #[Route('/projects/portfolio', name: 'app_projects_project_portfolio')]
+    public function portfolio(): Response
+    {
+        return $this->render('projects/portfolio/index.html.twig');
+    }
 }

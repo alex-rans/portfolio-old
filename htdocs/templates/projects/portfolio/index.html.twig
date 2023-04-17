@@ -1,0 +1,17 @@
+{% extends 'layout/template.html.twig' %}
+{% block body %}
+    <div class="container">
+        <h1 class="mb-0 pt-5">Portfolio</h1>
+        <a href="alexrans.com" target="_blank">link</a> - <a target="_blank" href="https://github.com/alex-rans/portfolio">Github</a>
+
+        <h2 class="mt-5">Subtitle</h2>
+        <p>The portfolio is made in the symfony framework. The reason I chose to work with a framework instead
+            of a static page was because I wanted to make use of the twig template engine and to keep some data in the
+            controllers. I went with a design that's very personal to me by using soft pastel colors, polaroids
+            and cutesy icons.</p>
+        <p>To host this website I use AWS EC2. The reason I wanted to use this is to automatically deploy my
+            website when I push to the git using continuous integration via Github Actions. This was quite the challenge
+            since I've never used AWS before. Luckily I have some experience with virtual private servers and setting
+            up a webserver. As web server I opted to use Apache as im somewhat familiar with this.</p>
+    </div>
+{% endblock %}

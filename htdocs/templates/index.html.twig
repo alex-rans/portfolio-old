@@ -15,7 +15,7 @@
             </svg>
         </div>
     </div>
-    <div class="container mt-5 about">
+    <div class="container mt-5" id="about">
         <div class="row align-items-center">
             <div class="col-12 col-md-8">
                 <h1 class="handwriting">About me</h1>
@@ -38,7 +38,7 @@
             </div>
         </div>
     </div>
-    <div class="mt-5 pb-5 position-relative projects">
+    <div class="mt-5 pb-5 position-relative" id="projects">
         <div class="custom-shape-divider-top-1681312239">
             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
                  preserveAspectRatio="none">
@@ -96,92 +96,157 @@
             </svg>
         </div>
     </div>
-    <div class="pb-5 container skills">
+    <div class="pb-5 container skills" id="skills">
         <h1 class="handwriting">Skills</h1>
         <h2 class="handwriting mt-5">Design</h2>
         <div class="row">
             {% for designs in designArray %}
-                <div class="col-12 col-sm-6 col-md-4 mb-4">
-                    <div class="d-flex justify-content-between">
-                        <p class="mb-1 handwriting">{{ designs.name }}</p>
-                        <p class="mb-1 handwriting">{{ designs.years }} years</p>
+                <div class="col-12 col-md-6 col-lg-4 mb-4">
+                    <div class="d-flex align-items-center">
+                        <img src="{{ asset('build/img/icons/') ~ designs.imgurl }}" alt="" height="80px">
+                        <div class="ms-3 align-content-center">
+                            <p class="mb-0 fs-4">{{ designs.name }}</p>
+                            <p class="mb-0">{{ designs.years }} years</p>
+                        </div>
                     </div>
-                    <div class="progress">
-                        <div class="bar shadow" style="width: {{ designs.percentage }}%;">
-{#                            <p>{{ designs.percentage }}%</p>#}
+                    <div class="bar">
+                        <div class="barinner d-flex justify-content-center align-items-center" style="width: {{ designs.percentage }}%">
+                            {% if designs.percentage > 0 and designs.percentage <= 20 %}
+                                <p class="mb-0">Basic</p>
+                            {% elseif designs.percentage > 21 and designs.percentage <= 40 %}
+                                <p class="mb-0">Intermediate</p>
+                            {% elseif designs.percentage > 41 and designs.percentage <= 60 %}
+                                <p class="mb-0">Competent</p>
+                            {% elseif designs.percentage > 61 and designs.percentage <= 80 %}
+                                <p class="mb-0">Proficient</p>
+                            {% elseif designs.percentage > 81 and designs.percentage <= 100 %}
+                                <p class="mb-0">Expert</p>
+                            {% endif %}
+
                         </div>
                     </div>
                 </div>
             {% endfor %}
-
-            <h2 class="handwriting mt-5">Front-end</h2>
-            <div class="row">
-                {% for designs in frontArray %}
-                    <div class="col-12 col-sm-6 col-md-4 mb-4">
-                        <div class="d-flex justify-content-between">
-                            <p class="mb-1 handwriting">{{ designs.name }}</p>
-                            <p class="mb-1 handwriting">{{ designs.years }} years</p>
-                        </div>
-                        <div class="progress">
-                            <div class="bar shadow" style="width: {{ designs.percentage }}%;">
-{#                                <p>{{ designs.percentage }}%</p>#}
-                            </div>
+        </div>
+        <h2 class="handwriting mt-5">Front-end</h2>
+        <div class="row">
+            {% for designs in frontArray %}
+                <div class="col-12 col-md-6 col-lg-4 mb-4">
+                    <div class="d-flex align-items-center">
+                        <img src="{{ asset('build/img/icons/') ~ designs.imgurl }}" alt="" height="80px">
+                        <div class="ms-3 align-content-center">
+                            <p class="mb-0 fs-4">{{ designs.name }}</p>
+                            <p class="mb-0">{{ designs.years }} years</p>
                         </div>
                     </div>
-                {% endfor %}
-            </div>
+                    <div class="bar">
+                        <div class="barinner d-flex justify-content-center align-items-center" style="width: {{ designs.percentage }}%">
+                            {% if designs.percentage > 0 and designs.percentage <= 20 %}
+                                <p class="mb-0">Basic</p>
+                            {% elseif designs.percentage > 21 and designs.percentage <= 40 %}
+                                <p class="mb-0">Intermediate</p>
+                            {% elseif designs.percentage > 41 and designs.percentage <= 60 %}
+                                <p class="mb-0">Competent</p>
+                            {% elseif designs.percentage > 61 and designs.percentage <= 80 %}
+                                <p class="mb-0">Proficient</p>
+                            {% elseif designs.percentage > 81 and designs.percentage <= 100 %}
+                                <p class="mb-0">Expert</p>
+                            {% endif %}
 
-            <h2 class="handwriting mt-5">back-end</h2>
-            <div class="row">
-                {% for designs in backArray %}
-                    <div class="col-12 col-sm-6 col-md-4 mb-4">
-                        <div class="d-flex justify-content-between">
-                            <p class="mb-1 handwriting">{{ designs.name }}</p>
-                            <p class="mb-1 handwriting">{{ designs.years }} years</p>
-                        </div>
-                        <div class="progress">
-                            <div class="bar shadow" style="width: {{ designs.percentage }}%;">
-{#                                <p>{{ designs.percentage }}%</p>#}
-                            </div>
                         </div>
                     </div>
-                {% endfor %}
-            </div>
-
-            <h2 class="handwriting mt-5">Frameworks</h2>
-            <div class="row">
-                {% for designs in frameworkArray %}
-                    <div class="col-12 col-sm-6 col-md-4 mb-4">
-                        <div class="d-flex justify-content-between">
-                            <p class="mb-1 handwriting">{{ designs.name }}</p>
-                            <p class="mb-1 handwriting">{{ designs.years }} years</p>
-                        </div>
-                        <div class="progress">
-                            <div class="bar shadow" style="width: {{ designs.percentage }}%;">
-{#                                <p>{{ designs.percentage }}%</p>#}
-                            </div>
+                </div>
+            {% endfor %}
+        </div>
+        <h2 class="handwriting mt-5">Back-end</h2>
+        <div class="row">
+            {% for designs in backArray %}
+                <div class="col-12 col-md-6 col-lg-4 mb-4">
+                    <div class="d-flex align-items-center">
+                        <img src="{{ asset('build/img/icons/') ~ designs.imgurl }}" alt="" height="80px">
+                        <div class="ms-3 align-content-center">
+                            <p class="mb-0 fs-4">{{ designs.name }}</p>
+                            <p class="mb-0">{{ designs.years }} years</p>
                         </div>
                     </div>
-                {% endfor %}
-            </div>
+                    <div class="bar">
+                        <div class="barinner d-flex justify-content-center align-items-center" style="width: {{ designs.percentage }}%">
+                            {% if designs.percentage > 0 and designs.percentage <= 20 %}
+                                <p class="mb-0">Basic</p>
+                            {% elseif designs.percentage > 21 and designs.percentage <= 40 %}
+                                <p class="mb-0">Intermediate</p>
+                            {% elseif designs.percentage > 41 and designs.percentage <= 60 %}
+                                <p class="mb-0">Competent</p>
+                            {% elseif designs.percentage > 61 and designs.percentage <= 80 %}
+                                <p class="mb-0">Proficient</p>
+                            {% elseif designs.percentage > 81 and designs.percentage <= 100 %}
+                                <p class="mb-0">Expert</p>
+                            {% endif %}
 
-            <h2 class="handwriting mt-5">Tooling/Dev-Ops</h2>
-            <div class="row">
-                {% for designs in toolingArray %}
-                    <div class="col-12 col-sm-6 col-md-4 mb-4">
-                        <div class="d-flex justify-content-between">
-                            <p class="mb-1 handwriting">{{ designs.name }}</p>
-                            <p class="mb-1 handwriting">{{ designs.years }} years</p>
-                        </div>
-                        <div class="progress">
-                            <div class="bar shadow" style="width: {{ designs.percentage }}%;">
-{#                                <p>{{ designs.percentage }}%</p>#}
-                            </div>
                         </div>
                     </div>
-                {% endfor %}
-            </div>
+                </div>
+            {% endfor %}
+        </div>
+        <h2 class="handwriting mt-5">Frameworks</h2>
+        <div class="row">
+            {% for designs in frameworkArray %}
+                <div class="col-12 col-md-6 col-lg-4 mb-4">
+                    <div class="d-flex align-items-center">
+                        <img src="{{ asset('build/img/icons/') ~ designs.imgurl }}" alt="" height="80px">
+                        <div class="ms-3 align-content-center">
+                            <p class="mb-0 fs-4">{{ designs.name }}</p>
+                            <p class="mb-0">{{ designs.years }} years</p>
+                        </div>
+                    </div>
+                    <div class="bar">
+                        <div class="barinner d-flex justify-content-center align-items-center" style="width: {{ designs.percentage }}%">
+                            {% if designs.percentage > 0 and designs.percentage <= 20 %}
+                                <p class="mb-0">Basic</p>
+                            {% elseif designs.percentage > 21 and designs.percentage <= 40 %}
+                                <p class="mb-0">Intermediate</p>
+                            {% elseif designs.percentage > 41 and designs.percentage <= 60 %}
+                                <p class="mb-0">Competent</p>
+                            {% elseif designs.percentage > 61 and designs.percentage <= 80 %}
+                                <p class="mb-0">Proficient</p>
+                            {% elseif designs.percentage > 81 and designs.percentage <= 100 %}
+                                <p class="mb-0">Expert</p>
+                            {% endif %}
 
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <h2 class="handwriting mt-5">Tooling/DevOps</h2>
+        <div class="row">
+            {% for designs in toolingArray %}
+                <div class="col-12 col-md-6 col-lg-4 mb-4">
+                    <div class="d-flex align-items-center">
+                        <img src="{{ asset('build/img/icons/') ~ designs.imgurl }}" alt="" height="80px">
+                        <div class="ms-3 align-content-center">
+                            <p class="mb-0 fs-4">{{ designs.name }}</p>
+                            <p class="mb-0">{{ designs.years }} years</p>
+                        </div>
+                    </div>
+                    <div class="bar">
+                        <div class="barinner d-flex justify-content-center align-items-center" style="width: {{ designs.percentage }}%">
+                            {% if designs.percentage > 0 and designs.percentage <= 20 %}
+                                <p class="mb-0">Basic</p>
+                            {% elseif designs.percentage > 21 and designs.percentage <= 40 %}
+                                <p class="mb-0">Intermediate</p>
+                            {% elseif designs.percentage > 41 and designs.percentage <= 60 %}
+                                <p class="mb-0">Competent</p>
+                            {% elseif designs.percentage > 61 and designs.percentage <= 80 %}
+                                <p class="mb-0">Proficient</p>
+                            {% elseif designs.percentage > 81 and designs.percentage <= 100 %}
+                                <p class="mb-0">Expert</p>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
     </div>
 

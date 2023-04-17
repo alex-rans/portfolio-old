@@ -37,14 +37,13 @@ body {
     }
   }
 }
-.about {
+#about {
   position: relative;
   z-index: 1;
   &::after{
     content: "";
     position: absolute;
     top: 0; right: -50px;
-    //transform: rotate(-10deg);
     width: 100%; height: 100%;
     filter: sepia(20%) brightness(90%) saturate(90%);
     background-image: url("../img/flowers.png");
@@ -59,7 +58,7 @@ body {
 
 }
 
-.projects {
+#projects {
   background-color: #F8C8DC;
   color: #000;
 
@@ -67,8 +66,8 @@ body {
     padding-top: 4rem;
   }
 }
-.skills{
-  h1{
+#skills{
+  h1 {
     padding-top: 4rem;
   }
 }

@@ -68,8 +68,10 @@ nav {
 
 
   i {
-    padding-right: 1rem;
-    margin-left: 17px;
+    display: inline-block;
+    width: 55px;
+    text-align: center;
+    //margin-left: 17px;
     font-size: 1.2rem;
   }
 }
@@ -94,9 +96,9 @@ nav {
   margin-left: 10px;
 }
 
-$height-icon: 30px;
+$height-icon: 20px;
 $width-line: 100%;
-$height-line: 4px;
+$height-line: 3px;
 
 $transition-time: 0.4s;
 $rotation: 45deg;
@@ -104,11 +106,11 @@ $translateY: ($height-icon / 2);
 $translateX: 0;
 #hamburger-icon {
   top: 1rem;
-  left: 5px;
+  left: 12px;
   height:$height-icon;
   position:fixed;
   display:block;
-  width: 44px;
+  width: 30px;
   z-index: 500;
 
   .line {
@@ -202,9 +204,9 @@ $translateX: 0;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      height: 70%;
       width: 55%;
       margin: auto;
+      margin-top: 4rem;
       li {
         text-align: center;
         font-size: 2rem;

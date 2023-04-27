@@ -11,7 +11,7 @@ class ProjectController extends AbstractController
     #[Route('/projects/', name: 'app_projects_project')]
     public function index(): Response
     {
-        return $this->render('projects/index.html.twig');
+        return $this->redirectToRoute('app_home');
     }
 
     #[Route('/projects/portfolio', name: 'app_projects_project_portfolio')]
@@ -19,4 +19,15 @@ class ProjectController extends AbstractController
     {
         return $this->render('projects/portfolio/index.html.twig');
     }
+    #[Route('/projects/socialads', name: 'app_projects_project_social_ads')]
+    public function social_ads(): Response
+    {
+        return $this->render('projects/social_ads/index.html.twig');
+    }
+    #[Route('/projects/noirecosmetics', name: 'app_projects_project_noirecosmetics')]
+    public function noirecosmetics(): Response
+    {
+        return $this->render('projects/noirecosmetics/index.html.twig');
+    }
+
 }

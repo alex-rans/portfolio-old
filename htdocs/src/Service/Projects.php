@@ -19,13 +19,14 @@ class Projects
     }
 
     public function getProjects(){
-        $projectsArray = [];
-        $portfolio = array_push($projectsArray, new Projects('portfolio', 'Portfolio', 'raccoon.jpg'));
-        $noirecosmetics = array_push($projectsArray, new Projects('noirecosmetics', 'Noire Cosmetics', 'noirecosmetics.jpg'));
-        $memorylog = array_push($projectsArray, new Projects('memorylog', 'Memory Log', 'memorylog.jpg'));
-        $vinylshop = array_push($projectsArray, new Projects('vinylshop', 'Vinyl shop', 'vinylshop.jpg'));
-        $socialads = array_push($projectsArray, new Projects('socialads', 'Social ads quotation tool', 'raccoon.jpg'));
+        $projectsArray = [
+            new Projects('portfolio', 'Portfolio', 'raccoon.jpg'),
+//            new Projects('noirecosmetics', 'Noire Cosmetics', 'noirecosmetics.jpg'),
+            new Projects('memorylog', 'Memory Log', 'memorylog.jpg'),
+            new Projects('vinylshop', 'Vinyl shop', 'vinylshop.jpg'),
+            new Projects('socialads', 'Social ads quotation tool', 'raccoon.jpg')
+        ];
+
         return $projectsArray;
     }
-
 }

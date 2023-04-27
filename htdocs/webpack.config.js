@@ -14,6 +14,10 @@ Encore
         from: './assets/img',
         to: 'img/[path][name].[ext]'
     })
+    .copyFiles({
+        from: './assets/files',
+        to: 'files/[path][name].[ext]'
+    })
     .splitEntryChunks()
     .enableSingleRuntimeChunk()
     .cleanupOutputBeforeBuild()

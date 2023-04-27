@@ -177,6 +177,7 @@ $translateX: 0;
     height: 20px;
     .line {
       height: $height-line;
+      background-color: #422F61;
     }
     &.active {
       .line-1 {

@@ -29,10 +29,11 @@ $(document).ready(function(){
     $('.polaroid').each(function (){
         const tilt = tilts[Math.floor(Math.random()*bars.length)];
         $(this).addClass(tilt);
-        $(this).click(function (){
-            const url = $(this).attr('id')
-            document.location.href = '/projects/' + url
-        })
+        if ($(this).attr('id')){
+            $(this).click(function (){
+                const url = $(this).attr('id')
+                document.location.href = '/projects/' + url
+            })
+        }
     })
-
 });

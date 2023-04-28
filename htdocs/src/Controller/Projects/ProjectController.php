@@ -29,5 +29,16 @@ class ProjectController extends AbstractController
     {
         return $this->render('projects/noirecosmetics/index.html.twig');
     }
+    #[Route('/projects/memorylog', name: 'app_projects_project_memorylog')]
+    public function memorylog(): Response
+    {
+        return $this->render('projects/memorylog/index.html.twig');
+    }
+
+    #[Route('/projects/vinylshop', name: 'app_projects_project_vinylshop')]
+    public function vinylshop(): Response
+    {
+        return $this->render('projects/vinylshop/index.html.twig');
+    }
 
 }

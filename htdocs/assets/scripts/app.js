@@ -1,5 +1,5 @@
 const $ = require('jquery');
-require('bootstrap');
+import * as bootstrap from 'bootstrap';
 
 import '../styles/app.scss';
 
@@ -11,6 +11,12 @@ $('.bar').each(function (){
 })
 $(document).ready(function(){
     let open = false;
+
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+
 
     $('#hamburger-icon').click(function(){
         $(this).toggleClass('active');

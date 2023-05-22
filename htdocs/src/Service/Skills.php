@@ -72,5 +72,4 @@ class Skills
         ];
         return$toolingArray;
     }
-
 }

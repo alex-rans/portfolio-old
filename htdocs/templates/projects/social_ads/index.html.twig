@@ -1,16 +1,62 @@
 {% extends 'layout/template.html.twig' %}
 {% block body %}
     <div class="container">
-        <h1 class="mb-0 pt-5">Social ads quotation tool</h1>
-        <a href="https://socialads.alexrans.com" target="_blank">link</a> - <a target="_blank" href="https://github.com/alex-rans/socialads">Github</a>
+        <h1 class="mb-0 pt-5">Internship: iO</h1>
 
-        <h2 class="mt-5">Introduction</h2>
-        <p>The social media team here at iO requested a tool to easily calculate the workload and price of different
-            kinds of posts. They wanted a tool because making a quotation was very nuanced and this resulted in
-            people making mistakes and giving unrealistic quotes to a client.</p>
-        <h2 class="mt-3">Technologies</h2>
-        <p>This tool is made in the Symfony PHP framework. Most off the calculations are done with javascript to
-            prevent page reloads while making calculations. The Framework was primarely used for the admin back-end
-            to edit posts, parameters and manage users.</p>
+        <h2 class="mt-3">Introduction</h2>
+        <p>During my internship at iO I had the invaluable opportunity to immerse myself in a dynamic and professional
+            work environment. Throughout my time there, I actively contributed to various projects and gained practical
+            experience that further solidified my passion for web development.</p>
+        <p>iO is an end-to-end agency for communication and digital transformation. They specialize in strategies,
+        marketing, and development.</p>
+        <h2 class="mt-3">Social ads quotation tools</h2>
+        <a href="https://socialads.alexrans.com" target="_blank">link</a> - <a target="_blank" href="https://github.com/alex-rans/socialads">Github</a>
+        <p>From the onset of my internship, I was entrusted with a range of responsibilities that allowed me to develop
+            and apply my skills effectively. One of the projects I worked on was the social ads quotation tool.</p>
+        <p>The social media team at iO requested an internal tool that could easily calculate the time and budget needed
+            to make a social media post. This allowed them to give better and more realistic quotes to clients. In the
+            past they used an Excel spreadsheet to calculate this, but the calculations are very nuanced and often
+            resulted in errors.</p>
+        <p>This tool was built in the Symfony PHP project, although most of the calculations are done in JavaScript.
+            This was done so that every time you change a variable or add something to the calculations, the page doesn't
+            have to reload. The framework was primarily used for the back-end. </p>
+        <p>In this tool the user can choose from a variety of media posts. They can add these to the calculator and can
+            then add languages or platforms. They can also add "child posts" if a social media post is a little more
+            complicated. After the user is done adding everything they can see the result on the right side of the screen
+            and export this to a spreadsheet or a link that can be shared. As an administrator you can add new posts
+            or edit existing ones.</p>
+        <h2>Other projects</h2>
+        <p>I have also contributed to various other projects for external clients. These included Hubo, CCV, Optiphar,
+            Flamingo, Hipposcan and D&amp;L. Most of these projects were e-commerce sites developed in the Shopware framework.
+            Working on these projects in a team allowed me to learn and understand how to work with Agile and use
+            the devops tools at my disposal more effectively.</p>
+        <h3>Hubo</h3>
+        <p>I had the opportunity to contribute to Hubo's scratch &amp; win action. The issue was that the database
+            insert for the action codes took way too long. What happened was that they generated a code, queried the
+            database to see if the code already existed, and then queried the database to insert the code. This required
+            a minimum of two queries to insert a single code. Normally this wouldn't be an issue, but if you have about
+            13 million codes, this could take a while.</p>
+        <p>I solved this issue by adding a UNIQUE constraint to the codes. This ensured that no duplicate codes can
+            exist. After that I generated the code and bruteforce inserted it in a try and catch. If it caught a
+            unique constraint violation, it would generate a new code and try to insert it again. This reduced the time
+            it took to insert a code by roughly 40%. Not enough. After this I used DBAL instead of Doctrine ORM to
+            insert data. This was slightly faster and further reduced the total time by an additional 20%.</p>
+        <h3>CCV</h3>
+        <p>I was tasked to work on some tickets for CCV's webstore. CCV's webstore was developed in shopware so
+            finding where the problem was is already half of the issue. The tickets were relatively simple and
+            included fixing an error with KVK number lookup during checkout and SEO breadcrumbs.</p>
+        <h3>Optiphar</h3>
+        <p>Optiphar is developed in Shopware as well, but most of the issues were easily solved in the admin. This was
+            mostly category links, snippets, document generation and a bunch of other small issues.</p>
+        <h3>Hipposcan</h3>
+        <p>Hipposcan is a website that takes an image of a horse and measures its weight from that. They used to save
+        this image locally somewhere, but they had issues with image sizes. I was asked to compress the image to below
+        5MB and to save it to the database in a base64 string.</p>
+        <h2>Final words</h2>
+        <p>Overall, my internship experience at iO was transformative. It equipped me with
+            invaluable hands-on experience, reinforced my passion for web development, and bolstered my confidence in
+            my ability to contribute effectively to a professional setting. I am grateful for the opportunities I had
+            and believe that my time at iO has laid a strong foundation for my future career
+            endeavors.</p>
     </div>
 {% endblock %}

@@ -13,6 +13,7 @@ body {
   font-weight: 500;
   position: relative;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 .handwriting {
@@ -70,4 +71,7 @@ body {
   h1 {
     padding-top: 4rem;
   }
+}
+h3{
+  font-size: 1.5rem;
 }

@@ -22,7 +22,7 @@ class Projects
         $projectsArray = [
             new Projects('portfolio', 'Portfolio', 'portfolio.jpg'),
             new Projects('socialads', 'Internship: iO', 'quotation.jpg'),
-//            new Projects('noirecosmetics', 'Noire Cosmetics', 'noirecosmetics.jpg'),
+            new Projects('noirecosmetics', 'Noire Cosmetics', 'noirecosmetics.jpg'),
             new Projects('memorylog', 'Memory Log', 'memorylog.jpg'),
             new Projects('vinylshop', 'Vinyl shop', 'vinylshop.jpg'),
         ];

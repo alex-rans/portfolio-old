@@ -1,20 +1,38 @@
 {% extends 'layout/template.html.twig' %}
 {% block body %}
     <div class="container">
-        <h1 class="mb-0 pt-5">Noire Cosmetics</h1>
-{#        <a href="https://noirecosmetics.alexrans.com" target="_blank">link</a> - #}
+        {#        <h1 class="mb-0 pt-5">Noire Cosmetics</h1> #}
+        {#        <a href="https://noirecosmetics.alexrans.com" target="_blank">link</a> - #}
         <a target="_blank" href="https://github.com/alex-rans/noire_cosmetics">Github</a>
-        <h2 class="mt-5">Context</h2>
+        <h2 class="mt-3">Context</h2>
         <p>Noire Cosmetics is a company I run. I found a gap in the market after realizing there is only 1 manufacturer
-        of a specific type of skin oil in Europe. There are 4 in total in the entire world, and they all charge a massive
-        markup compared to the cost of the raw materials. This product is in relatively high demand for a specific
-        community. I saw this, researched how it was made, development my own production strategy and started making and
-        selling my own. On a good week when I have stock I can easily turn over &euro; 1500-2000 per week.</p>
+            of a specific type of skin oil in Europe. There are 4 in total in the entire world, and they all charge a
+            massive
+            markup compared to the cost of the raw materials. This product is in relatively high demand for a specific
+            community. I saw this, researched how it was made, development my own production strategy and started making
+            and selling my own.</p>
         <h2>Development</h2>
         <p>The webstore is largely based on my previous Vinyl store project. This made development quite easy and
-        meant that the website was ready for production in about two week. Everything can be managed via the admin and
-        product pages are displayed by very basic CMS. Additional feature include a system for discount codes, a newsletter
-        and a page where deposits can be checked via an API. Payment is handled via cryptocurrency.</p>
+            meant that the website was ready for production in about two week. Everything can be managed via the admin
+            and
+            product pages are displayed by very basic CMS. Additional feature include a system for discount codes, a
+            newsletter
+            and a page where deposits can be checked via an API. Payment is handled via cryptocurrency.</p>
+        <h2>Screenshots</h2>
+        <div class="row mb-3">
+            <div class="col-12 col-md-6">
+                <img class="img-fluid" src="{{ asset('build/img/noirecos_01.jpg') }}" alt="">
+            </div>
+            <div class="col-12 col-md-6">
+                <img class="img-fluid" src="{{ asset('build/img/noirecos_02.jpg') }}" alt="">
+            </div>
+            <div class="col-12 col-md-6">
+                <img class="img-fluid" src="{{ asset('build/img/noirecos_03.jpg') }}" alt="">
+            </div>
+            <div class="col-12 col-md-6">
+                <img class="img-fluid" src="{{ asset('build/img/noirecos_04.jpg') }}" alt="">
+            </div>
+        </div>
         <a href="/">back</a>
     </div>
 {% endblock %}

@@ -1,252 +1,253 @@
-{% extends 'layout/template.html.twig' %}
-{% block body %}
-    <div class="intro container-fluid">
-        <div class="container">
-            <h1 class="handwriting mb-0 pt-4">Who the f**k is Alex?</h1>
-            <p class="mb-0">I'm a full-stack developer with a background in multimedia and software development with a
-                weak spot for pastel-polaroid-artsy-doodle aesthetics.</p>
-        </div>
-    </div>
-    <div class="position-relative">
-        <div class="custom-shape-divider-top-1681384962">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
-                 preserveAspectRatio="none">
-                <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
-            </svg>
-        </div>
-    </div>
-    <div class="container mt-5" id="about">
-        <div class="row align-items-center">
-            <div class="col-12 col-md-8">
-                <h1 class="handwriting">About me</h1>
-                <p>My biggest passion is web design &amp; development. I made my first website when I was 12 using
-                    basic HTML and CSS, made a forum when I was 17 using Simple Machines Forum and started
-                    making websites for people soon after. After graduating with a degree in multimedia I decided
-                    to study applied informatics and application development.</p>
-                <p>Looking for both practical and creative solutions to problems is one of my strengths, as well as
-                    communicating with my team and resolving conflicts. I know Python, Java, C#, Javascript, Typescript,
-                    and a bunch of others, but my heart will always be at PHP.</p>
-                <p>My hobbies are playing the bass guitar, painting, writing and building model kits.
-                    They are a creative outlet for me to clear my head. I love spending time with close friends and
-                    capturing memories together with polaroids. People describe me as helpful, down to earth and funny.
-                    In fact, I am so funny even HR wants to hear my jokes.</p>
-                <p>You can find my contact information and my resume <a target="_blank" href="{{ asset('/build/files/Rans_CV.pdf') }}">here</a>.</p>
-            </div>
-            <div class="col-12 col-md-4 d-flex d-md-inline-block">
-                <div class="polaroid tilt-r-10 m-auto mt-5 mt-s-0">
-                    <img src="{{ asset('build/img/me.jpg') }}" width="275px" alt="">
-                    <p>Hi this is me</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="internship" class="container mt-4">
-        <div class="row align-items-center">
-            <div class="col-12 col-md-4 d-md-flex d-none d-md-inline-block">
-                <div class="polaroid m-auto mt-5 mt-s-0" id="socialads">
-                    <img src="{{ asset('build/img/quotation.jpg') }}" width="275px" alt="">
-                    <p>Internship</p>
-                </div>
-            </div>
-            <div class="col-12 col-md-8">
-                <h1 class="handwriting">Internship: iO</h1>
-                <p>During my internship at iO, I had the invaluable opportunity to immerse myself in a dynamic and
-                    fast-paced work environment. Throughout my time there, I actively contributed to various projects
-                    and gained practical experience that further solidified my passion for web development.</p>
-                <p>From the onset of my internship, I was entrusted with a range of responsibilities that allowed me to
-                    develop and apply my skills effectively. One of the key projects I worked on was the social app
-                    quotation tool. Through this experience, I was able to enhance my problem-solving abilities and
-                    apply theoretical concepts to real-world scenarios, enabling me to make meaningful contributions
-                    to the project's success.</p>
-            </div>
-            <div class="col-12 col-md-4 d-md-none d-flex">
-                <div class="polaroid m-auto mt-5 mt-s-0">
-                    <img src="{{ asset('build/img/quotation.jpg') }}" width="275px" alt="">
-                    <p>Internship</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="mt-5 pb-5 position-relative" id="projects">
-        <div class="custom-shape-divider-top-1681312239">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
-                 preserveAspectRatio="none">
-                <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
-            </svg>
-        </div>
-        <div class="container">
-            <h1 class="handwriting">Realizations</h1>
-            <div class="row mt-5">
-                {% for project in projects %}
-                <div class="col-12 col-sm-6 col-lg-4 d-flex mb-2 mb-sm-5 justify-content-center">
-                    <div class="polaroid tilt-l-2" id="{{ project.url }}">
-                        <img src="{{ asset('build/img/') ~ project.img }}" width="275px" alt="">
-                        <p>{{ project.title }}</p>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-    </div>
-    <div class="position-relative">
-        <div class="custom-shape-divider-top-1681319272">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
-                 preserveAspectRatio="none">
-                <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
-            </svg>
-        </div>
-    </div>
-    <div class="pb-5 container skills" id="skills">
-        <h1 class="handwriting">Skills</h1>
-        <h2 class="handwriting mt-5">Design</h2>
-        <div class="row">
-            {% for designs in designArray %}
-                <div class="col-12 col-md-6 col-lg-4 mb-4">
-                    <div class="d-flex align-items-center">
-                        <img src="{{ asset('build/img/icons/') ~ designs.imgurl }}" alt="" height="80px">
-                        <div class="ms-3 align-content-center">
-                            <p class="mb-0 fs-4">{{ designs.name }}</p>
-                            <p class="mb-0">{{ designs.years }} years</p>
-                        </div>
-                    </div>
-                    <div class="bar">
-                        <div class="barinner d-flex justify-content-center align-items-center" style="width: {{ designs.percentage }}%">
-                            {% if designs.percentage > 0 and designs.percentage <= 20 %}
-                                <p class="mb-0">Basic</p>
-                            {% elseif designs.percentage > 21 and designs.percentage <= 40 %}
-                                <p class="mb-0">Intermediate</p>
-                            {% elseif designs.percentage > 41 and designs.percentage <= 60 %}
-                                <p class="mb-0">Competent</p>
-                            {% elseif designs.percentage > 61 and designs.percentage <= 80 %}
-                                <p class="mb-0">Proficient</p>
-                            {% elseif designs.percentage > 81 and designs.percentage <= 100 %}
-                                <p class="mb-0">Expert</p>
-                            {% endif %}
+{#{% extends 'layout/template.html.twig' %}#}
+{#{% block body %}#}
+{#    <div class="intro container-fluid">#}
+{#        <div class="container">#}
+{#            <h1 class="handwriting mb-0 pt-4">Who the f**k is Alex?</h1>#}
+{#            <p class="mb-0">I'm a full-stack developer with a background in multimedia and software development with a#}
+{#                weak spot for pastel-polaroid-artsy-doodle aesthetics.</p>#}
+{#        </div>#}
+{#    </div>#}
+{#    <div class="position-relative">#}
+{#        <div class="custom-shape-divider-top-1681384962">#}
+{#            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"#}
+{#                 preserveAspectRatio="none">#}
+{#                <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>#}
+{#            </svg>#}
+{#        </div>#}
+{#    </div>#}
+{#    <div class="container mt-5" id="about">#}
+{#        <div class="row align-items-center">#}
+{#            <div class="col-12 col-md-8">#}
+{#                <h1 class="handwriting">About me</h1>#}
+{#                <p>My biggest passion is web design &amp; development. I made my first website when I was 12 using#}
+{#                    basic HTML and CSS, made a forum when I was 17 using Simple Machines Forum and started#}
+{#                    making websites for people soon after. After graduating with a degree in multimedia I decided#}
+{#                    to study applied informatics and application development.</p>#}
+{#                <p>Looking for both practical and creative solutions to problems is one of my strengths, as well as#}
+{#                    communicating with my team and resolving conflicts. I know Python, Java, C#, Javascript, Typescript,#}
+{#                    and a bunch of others, but my heart will always be at PHP.</p>#}
+{#                <p>My hobbies are playing the bass guitar, painting, writing and building model kits.#}
+{#                    They are a creative outlet for me to clear my head. I love spending time with close friends and#}
+{#                    capturing memories together with polaroids. People describe me as helpful, down to earth and funny.#}
+{#                    In fact, I am so funny even HR wants to hear my jokes.</p>#}
+{#                <p>You can find my contact information and my resume <a target="_blank" href="{{ asset('/build/files/Rans_CV.pdf') }}">here</a>.</p>#}
+{#            </div>#}
+{#            <div class="col-12 col-md-4 d-flex d-md-inline-block">#}
+{#                <div class="polaroid tilt-r-10 m-auto mt-5 mt-s-0">#}
+{#                    <img src="{{ asset('build/img/me.jpg') }}" width="275px" alt="">#}
+{#                    <p>Hi this is me</p>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#    <div id="internship" class="container mt-4">#}
+{#        <div class="row align-items-center">#}
+{#            <div class="col-12 col-md-4 d-md-flex d-none d-md-inline-block">#}
+{#                <div class="polaroid m-auto mt-5 mt-s-0" id="socialads">#}
+{#                    <img src="{{ asset('build/img/quotation.jpg') }}" width="275px" alt="">#}
+{#                    <p>Internship</p>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="col-12 col-md-8">#}
+{#                <h1 class="handwriting">Internship: iO</h1>#}
+{#                <p>During my internship at iO, I had the invaluable opportunity to immerse myself in a dynamic and#}
+{#                    fast-paced work environment. Throughout my time there, I actively contributed to various projects#}
+{#                    and gained practical experience that further solidified my passion for web development.</p>#}
+{#                <p>From the onset of my internship, I was entrusted with a range of responsibilities that allowed me to#}
+{#                    develop and apply my skills effectively. One of the key projects I worked on was the social app#}
+{#                    quotation tool. Through this experience, I was able to enhance my problem-solving abilities and#}
+{#                    apply theoretical concepts to real-world scenarios, enabling me to make meaningful contributions#}
+{#                    to the project's success.</p>#}
+{#            </div>#}
+{#            <div class="col-12 col-md-4 d-md-none d-flex">#}
+{#                <div class="polaroid m-auto mt-5 mt-s-0">#}
+{#                    <img src="{{ asset('build/img/quotation.jpg') }}" width="275px" alt="">#}
+{#                    <p>Internship</p>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#    <div class="mt-5 pb-5 position-relative" id="projects">#}
+{#        <div class="custom-shape-divider-top-1681312239">#}
+{#            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"#}
+{#                 preserveAspectRatio="none">#}
+{#                <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>#}
+{#            </svg>#}
+{#        </div>#}
+{#        <div class="container">#}
+{#            <h1 class="handwriting">Realizations</h1>#}
+{#            <div class="row mt-5">#}
+{#                {% for project in projects %}#}
+{#                <div class="col-12 col-sm-6 col-lg-4 d-flex mb-2 mb-sm-5 justify-content-center">#}
+{#                    <div class="polaroid tilt-l-2" id="{{ project.url }}">#}
+{#                        <img src="{{ asset('build/img/') ~ project.img }}" width="275px" alt="">#}
+{#                        <p>{{ project.title }}</p>#}
+{#                    </div>#}
+{#                </div>#}
+{#                {% endfor %}#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#    <div class="position-relative">#}
+{#        <div class="custom-shape-divider-top-1681319272">#}
+{#            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"#}
+{#                 preserveAspectRatio="none">#}
+{#                <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>#}
+{#            </svg>#}
+{#        </div>#}
+{#    </div>#}
+{#    <div class="pb-5 container skills" id="skills">#}
+{#        <h1 class="handwriting">Skills</h1>#}
+{#        <h2 class="handwriting mt-5">Design</h2>#}
+{#        <div class="row">#}
+{#            {% for designs in designArray %}#}
+{#                <div class="col-12 col-md-6 col-lg-4 mb-4">#}
+{#                    <div class="d-flex align-items-center">#}
+{#                        <img src="{{ asset('build/img/icons/') ~ designs.imgurl }}" alt="" height="80px">#}
+{#                        <div class="ms-3 align-content-center">#}
+{#                            <p class="mb-0 fs-4">{{ designs.name }}</p>#}
+{#                            <p class="mb-0">{{ designs.years }} years</p>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="bar">#}
+{#                        <div class="barinner d-flex justify-content-center align-items-center" style="width: {{ designs.percentage }}%">#}
+{#                            {% if designs.percentage > 0 and designs.percentage <= 20 %}#}
+{#                                <p class="mb-0">Basic</p>#}
+{#                            {% elseif designs.percentage > 21 and designs.percentage <= 40 %}#}
+{#                                <p class="mb-0">Intermediate</p>#}
+{#                            {% elseif designs.percentage > 41 and designs.percentage <= 60 %}#}
+{#                                <p class="mb-0">Competent</p>#}
+{#                            {% elseif designs.percentage > 61 and designs.percentage <= 80 %}#}
+{#                                <p class="mb-0">Proficient</p>#}
+{#                            {% elseif designs.percentage > 81 and designs.percentage <= 100 %}#}
+{#                                <p class="mb-0">Expert</p>#}
+{#                            {% endif %}#}
 
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-        <h2 class="handwriting mt-5">Front-end</h2>
-        <div class="row">
-            {% for designs in frontArray %}
-                <div class="col-12 col-md-6 col-lg-4 mb-4">
-                    <div class="d-flex align-items-center">
-                        <img src="{{ asset('build/img/icons/') ~ designs.imgurl }}" alt="" height="80px">
-                        <div class="ms-3 align-content-center">
-                            <p class="mb-0 fs-4">{{ designs.name }}</p>
-                            <p class="mb-0">{{ designs.years }} years</p>
-                        </div>
-                    </div>
-                    <div class="bar">
-                        <div class="barinner d-flex justify-content-center align-items-center" style="width: {{ designs.percentage }}%">
-                            {% if designs.percentage > 0 and designs.percentage <= 20 %}
-                                <p class="mb-0">Basic</p>
-                            {% elseif designs.percentage > 21 and designs.percentage <= 40 %}
-                                <p class="mb-0">Intermediate</p>
-                            {% elseif designs.percentage > 41 and designs.percentage <= 60 %}
-                                <p class="mb-0">Competent</p>
-                            {% elseif designs.percentage > 61 and designs.percentage <= 80 %}
-                                <p class="mb-0">Proficient</p>
-                            {% elseif designs.percentage > 81 and designs.percentage <= 100 %}
-                                <p class="mb-0">Expert</p>
-                            {% endif %}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#        <h2 class="handwriting mt-5">Front-end</h2>#}
+{#        <div class="row">#}
+{#            {% for designs in frontArray %}#}
+{#                <div class="col-12 col-md-6 col-lg-4 mb-4">#}
+{#                    <div class="d-flex align-items-center">#}
+{#                        <img src="{{ asset('build/img/icons/') ~ designs.imgurl }}" alt="" height="80px">#}
+{#                        <div class="ms-3 align-content-center">#}
+{#                            <p class="mb-0 fs-4">{{ designs.name }}</p>#}
+{#                            <p class="mb-0">{{ designs.years }} years</p>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="bar">#}
+{#                        <div class="barinner d-flex justify-content-center align-items-center" style="width: {{ designs.percentage }}%">#}
+{#                            {% if designs.percentage > 0 and designs.percentage <= 20 %}#}
+{#                                <p class="mb-0">Basic</p>#}
+{#                            {% elseif designs.percentage > 21 and designs.percentage <= 40 %}#}
+{#                                <p class="mb-0">Intermediate</p>#}
+{#                            {% elseif designs.percentage > 41 and designs.percentage <= 60 %}#}
+{#                                <p class="mb-0">Competent</p>#}
+{#                            {% elseif designs.percentage > 61 and designs.percentage <= 80 %}#}
+{#                                <p class="mb-0">Proficient</p>#}
+{#                            {% elseif designs.percentage > 81 and designs.percentage <= 100 %}#}
+{#                                <p class="mb-0">Expert</p>#}
+{#                            {% endif %}#}
 
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-        <h2 class="handwriting mt-5">Back-end</h2>
-        <div class="row">
-            {% for designs in backArray %}
-                <div class="col-12 col-md-6 col-lg-4 mb-4">
-                    <div class="d-flex align-items-center">
-                        <img src="{{ asset('build/img/icons/') ~ designs.imgurl }}" alt="" height="80px">
-                        <div class="ms-3 align-content-center">
-                            <p class="mb-0 fs-4">{{ designs.name }}</p>
-                            <p class="mb-0">{{ designs.years }} years</p>
-                        </div>
-                    </div>
-                    <div class="bar">
-                        <div class="barinner d-flex justify-content-center align-items-center" style="width: {{ designs.percentage }}%">
-                            {% if designs.percentage > 0 and designs.percentage <= 20 %}
-                                <p class="mb-0">Basic</p>
-                            {% elseif designs.percentage > 21 and designs.percentage <= 40 %}
-                                <p class="mb-0">Intermediate</p>
-                            {% elseif designs.percentage > 41 and designs.percentage <= 60 %}
-                                <p class="mb-0">Competent</p>
-                            {% elseif designs.percentage > 61 and designs.percentage <= 80 %}
-                                <p class="mb-0">Proficient</p>
-                            {% elseif designs.percentage > 81 and designs.percentage <= 100 %}
-                                <p class="mb-0">Expert</p>
-                            {% endif %}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#        <h2 class="handwriting mt-5">Back-end</h2>#}
+{#        <div class="row">#}
+{#            {% for designs in backArray %}#}
+{#                <div class="col-12 col-md-6 col-lg-4 mb-4">#}
+{#                    <div class="d-flex align-items-center">#}
+{#                        <img src="{{ asset('build/img/icons/') ~ designs.imgurl }}" alt="" height="80px">#}
+{#                        <div class="ms-3 align-content-center">#}
+{#                            <p class="mb-0 fs-4">{{ designs.name }}</p>#}
+{#                            <p class="mb-0">{{ designs.years }} years</p>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="bar">#}
+{#                        <div class="barinner d-flex justify-content-center align-items-center" style="width: {{ designs.percentage }}%">#}
+{#                            {% if designs.percentage > 0 and designs.percentage <= 20 %}#}
+{#                                <p class="mb-0">Basic</p>#}
+{#                            {% elseif designs.percentage > 21 and designs.percentage <= 40 %}#}
+{#                                <p class="mb-0">Intermediate</p>#}
+{#                            {% elseif designs.percentage > 41 and designs.percentage <= 60 %}#}
+{#                                <p class="mb-0">Competent</p>#}
+{#                            {% elseif designs.percentage > 61 and designs.percentage <= 80 %}#}
+{#                                <p class="mb-0">Proficient</p>#}
+{#                            {% elseif designs.percentage > 81 and designs.percentage <= 100 %}#}
+{#                                <p class="mb-0">Expert</p>#}
+{#                            {% endif %}#}
 
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-        <h2 class="handwriting mt-5">Frameworks</h2>
-        <div class="row">
-            {% for designs in frameworkArray %}
-                <div class="col-12 col-md-6 col-lg-4 mb-4">
-                    <div class="d-flex align-items-center">
-                        <img src="{{ asset('build/img/icons/') ~ designs.imgurl }}" alt="" height="80px">
-                        <div class="ms-3 align-content-center">
-                            <p class="mb-0 fs-4">{{ designs.name }}</p>
-                            <p class="mb-0">{{ designs.years }} years</p>
-                        </div>
-                    </div>
-                    <div class="bar">
-                        <div class="barinner d-flex justify-content-center align-items-center" style="width: {{ designs.percentage }}%">
-                            {% if designs.percentage > 0 and designs.percentage <= 20 %}
-                                <p class="mb-0">Basic</p>
-                            {% elseif designs.percentage > 21 and designs.percentage <= 40 %}
-                                <p class="mb-0">Intermediate</p>
-                            {% elseif designs.percentage > 41 and designs.percentage <= 60 %}
-                                <p class="mb-0">Competent</p>
-                            {% elseif designs.percentage > 61 and designs.percentage <= 80 %}
-                                <p class="mb-0">Proficient</p>
-                            {% elseif designs.percentage > 81 and designs.percentage <= 100 %}
-                                <p class="mb-0">Expert</p>
-                            {% endif %}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#        <h2 class="handwriting mt-5">Frameworks</h2>#}
+{#        <div class="row">#}
+{#            {% for designs in frameworkArray %}#}
+{#                <div class="col-12 col-md-6 col-lg-4 mb-4">#}
+{#                    <div class="d-flex align-items-center">#}
+{#                        <img src="{{ asset('build/img/icons/') ~ designs.imgurl }}" alt="" height="80px">#}
+{#                        <div class="ms-3 align-content-center">#}
+{#                            <p class="mb-0 fs-4">{{ designs.name }}</p>#}
+{#                            <p class="mb-0">{{ designs.years }} years</p>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="bar">#}
+{#                        <div class="barinner d-flex justify-content-center align-items-center" style="width: {{ designs.percentage }}%">#}
+{#                            {% if designs.percentage > 0 and designs.percentage <= 20 %}#}
+{#                                <p class="mb-0">Basic</p>#}
+{#                            {% elseif designs.percentage > 21 and designs.percentage <= 40 %}#}
+{#                                <p class="mb-0">Intermediate</p>#}
+{#                            {% elseif designs.percentage > 41 and designs.percentage <= 60 %}#}
+{#                                <p class="mb-0">Competent</p>#}
+{#                            {% elseif designs.percentage > 61 and designs.percentage <= 80 %}#}
+{#                                <p class="mb-0">Proficient</p>#}
+{#                            {% elseif designs.percentage > 81 and designs.percentage <= 100 %}#}
+{#                                <p class="mb-0">Expert</p>#}
+{#                            {% endif %}#}
 
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-        <h2 class="handwriting mt-5">Tooling/DevOps</h2>
-        <div class="row">
-            {% for designs in toolingArray %}
-                <div class="col-12 col-md-6 col-lg-4 mb-4">
-                    <div class="d-flex align-items-center">
-                        <img src="{{ asset('build/img/icons/') ~ designs.imgurl }}" alt="" height="80px">
-                        <div class="ms-3 align-content-center">
-                            <p class="mb-0 fs-4">{{ designs.name }}</p>
-                            <p class="mb-0">{{ designs.years }} years</p>
-                        </div>
-                    </div>
-                    <div class="bar">
-                        <div class="barinner d-flex justify-content-center align-items-center" style="width: {{ designs.percentage }}%">
-                            {% if designs.percentage > 0 and designs.percentage <= 20 %}
-                                <p class="mb-0">Basic</p>
-                            {% elseif designs.percentage > 21 and designs.percentage <= 40 %}
-                                <p class="mb-0">Intermediate</p>
-                            {% elseif designs.percentage > 41 and designs.percentage <= 60 %}
-                                <p class="mb-0">Competent</p>
-                            {% elseif designs.percentage > 61 and designs.percentage <= 80 %}
-                                <p class="mb-0">Proficient</p>
-                            {% elseif designs.percentage > 81 and designs.percentage <= 100 %}
-                                <p class="mb-0">Expert</p>
-                            {% endif %}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#        <h2 class="handwriting mt-5">Tooling/DevOps</h2>#}
+{#        <div class="row">#}
+{#            {% for designs in toolingArray %}#}
+{#                <div class="col-12 col-md-6 col-lg-4 mb-4">#}
+{#                    <div class="d-flex align-items-center">#}
+{#                        <img src="{{ asset('build/img/icons/') ~ designs.imgurl }}" alt="" height="80px">#}
+{#                        <div class="ms-3 align-content-center">#}
+{#                            <p class="mb-0 fs-4">{{ designs.name }}</p>#}
+{#                            <p class="mb-0">{{ designs.years }} years</p>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="bar">#}
+{#                        <div class="barinner d-flex justify-content-center align-items-center" style="width: {{ designs.percentage }}%">#}
+{#                            {% if designs.percentage > 0 and designs.percentage <= 20 %}#}
+{#                                <p class="mb-0">Basic</p>#}
+{#                            {% elseif designs.percentage > 21 and designs.percentage <= 40 %}#}
+{#                                <p class="mb-0">Intermediate</p>#}
+{#                            {% elseif designs.percentage > 41 and designs.percentage <= 60 %}#}
+{#                                <p class="mb-0">Competent</p>#}
+{#                            {% elseif designs.percentage > 61 and designs.percentage <= 80 %}#}
+{#                                <p class="mb-0">Proficient</p>#}
+{#                            {% elseif designs.percentage > 81 and designs.percentage <= 100 %}#}
+{#                                <p class="mb-0">Expert</p>#}
+{#                            {% endif %}#}
 
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-    </div>
-{% endblock %}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#    </div>#}
+{#{% endblock %}#}
+<h1>Man doe toch normaal.</h1>

@@ -25,6 +25,7 @@ class Projects
 //            new Projects('noirecosmetics', 'Noire Cosmetics', 'noirecosmetics.jpg'),
             new Projects('memorylog', 'Memory Log', 'memorylog.jpg'),
             new Projects('vinylshop', 'Vinyl shop', 'vinylshop.jpg'),
+            new Projects('diyhrtapi', 'diyhrt.cafe API', 'diyhrtapi.jpg'),
         ];
 
         return $projectsArray;

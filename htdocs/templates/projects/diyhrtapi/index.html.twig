@@ -1,0 +1,32 @@
+{% extends 'layout/template.html.twig' %}
+{% block body %}
+    <div class="container">
+        <h1 class="mb-0 pt-5">diyhrt.cafe API</h1>
+        <a href="https://api.alexrans.com" target="_blank">link</a> - <a target="_blank"
+                                                                         href="https://github.com/alex-rans/diyhrt-api">Github</a>
+        <h2 class="mt-5">Context</h2>
+        <p>DIYHrt.Cafe is a website created to provide information for how to safely obtain HRT for trans people who
+            cannot access prescriptions for various reasons. This wiki was made to help people undergo a medical
+            transition for those who live in countries where it is not available, have long waiting lists, want medical
+            autonomy or for various other reasons. The wiki lists over 400 different products. Keeping all of these up
+            to date with the latest pricing information for a team of small administrators is nearly impossible. This is
+            why I set out to create a scraper and API to provide an additional way to access this data and to
+            automatically keep the data up-to-date.</p>
+        <h2>Development</h2>
+        <p>This API and scraper is written in the Symfony framework. I chose this framework because the website is made
+            using MediaWiki, which is a PHP framework as well. I also chose Symfony because I feel most comfortable in
+            this framework and this API has to be maintained for a while.</p>
+        <h2>Documentation</h2>
+        <p>Proper documentation was essential for this project because multiple people will be using this. The API is
+            documented with swagger and is available on the base path. The scraped and other functionalities
+            is documented via the readme.md.</p>
+        <h2>Scraper</h2>
+        <p>The scraper was made using <a href="https://phpscraper.de/">phpscraper.de</a>. It's an easy-to-use and
+            versatile scraper. Symfony technically has an http client and scraper build in but its often not configured
+            very well and some websites will block access. phpscraper.de takes care of everything.</p>
+        <p>The scraper finds the price data by an xPath field in either the product or supplier record. It defaults to
+            using the xPath field in the supplier record but when there is one in the product record it uses that one
+            instead. The reason its made like this is that some websites have multi-select or multiple options for a
+            product and the price can be listed differently because of that.</p>
+    </div>
+{% endblock %}

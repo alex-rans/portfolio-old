@@ -136,6 +136,7 @@ $translateX: 0;
     }
   }
   &:hover, &:focus {
+    cursor: pointer;
     .line-1 {
       transform: translateY($height-line / 2 * -1);
       -webkit-transform: translateY($height-line / 2 * -1);
@@ -178,6 +179,9 @@ $translateX: 0;
     .line {
       height: $height-line;
       background-color: #422F61;
+    }
+    &:hover {
+      cursor: pointer;
     }
     &.active {
       .line-1 {
